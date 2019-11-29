@@ -20,14 +20,6 @@ import kotlin.collections.HashMap
 import kotlin.collections.LinkedHashMap
 
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [ChartFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [ChartFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChartFragment : Fragment() {
     var line: LineChart? = null
 
@@ -44,17 +36,23 @@ class ChartFragment : Fragment() {
 
         line = view.findViewById<View>(R.id.line) as LineChart
 
+        /*
         val numReps = arguments!!.getInt(ARG_REPS)
         val quota = arguments!!.getInt(ARG_QUOTA)
         val iterations = arguments!!.getInt(ARG_ITERATIONS)
 
-        val r = calculatePoints(numReps, quota, iterations) // array of doubles with the values in it
+         */
+        val r = arguments!!.getDoubleArray(ARG_DATASET);
+
+        // val r = calculatePoints(numReps, quota, iterations) // array of doubles with the values in it
 
         val yVals = ArrayList<Entry>()
         var i = 0
-        while (i < r.size) {
-            yVals.add(Entry(i.toFloat(), r[i].toFloat(), i.toString()))
-            i += 1
+        if (r != null) {
+            while (i < r.size) {
+                yVals.add(Entry(i.toFloat(), r[i].toFloat(), i.toString()))
+                i += 1
+            }
         }
         /*
         yVals.add(Entry(0f, 30f, "0"))
@@ -229,16 +227,21 @@ class ChartFragment : Fragment() {
     }
 
     companion object {
+        /*
         const val ARG_REPS = "numReps"
         const val ARG_QUOTA = "quota"
         const val ARG_ITERATIONS = "iterations"
+
+         */
+        const val ARG_DATASET = "dataset"
         // TODO: Rename and change types and number of parameters
-        fun newInstance(numReps: Int, quota : Int, iterations : Int): ChartFragment {
+        fun newInstance(dataset : DoubleArray): ChartFragment {
             val fragment = ChartFragment()
             val bundle = Bundle().apply {
-                putInt(ARG_REPS, numReps)
-                putInt(ARG_QUOTA, quota)
-                putInt(ARG_ITERATIONS, iterations)
+                // putInt(ARG_REPS, numReps)
+                // putInt(ARG_QUOTA, quota)
+                // putInt(ARG_ITERATIONS, iterations)
+                putDoubleArray(ARG_DATASET, dataset)
             }
 
             fragment.arguments = bundle
