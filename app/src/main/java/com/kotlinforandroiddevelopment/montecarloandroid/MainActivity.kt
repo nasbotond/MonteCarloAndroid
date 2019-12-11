@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity(), InputFragment.OnFragmentInteractionLis
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // setSupportActionBar(toolbar)
-        // bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         toolbar = supportActionBar!!
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottomNavigationView)
 
@@ -54,7 +52,7 @@ class MainActivity : AppCompatActivity(), InputFragment.OnFragmentInteractionLis
             }
             R.id.navigation_printedData -> {
                 toolbar.title = "Printed Data"
-                val fragment = PrintedDataFragment.newInstance()
+                val fragment = PrintedDataFragment.newInstance(dataset)
                 supportFragmentManager.beginTransaction().replace(R.id.container, fragment)
                     .commit()
                 return@OnNavigationItemSelectedListener true

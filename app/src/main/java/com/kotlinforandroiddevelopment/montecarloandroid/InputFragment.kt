@@ -48,7 +48,6 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_input, container, false)
-        // view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.INVISIBLE
         val runBtn =
             view.findViewById<Button>(R.id.runButton)
 
@@ -72,7 +71,6 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.forEach { item: MenuItem -> item.isEnabled =
                     true }
             }
-            // insertFragment(Integer.parseInt(findViewById<EditText>(R.id.numReps).text.toString()), Integer.parseInt(findViewById<EditText>(R.id.quota).text.toString()), Integer.parseInt(findViewById<EditText>(R.id.iterations).text.toString()))
         }
         // Inflate the layout for this fragment
         return view
@@ -152,10 +150,6 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
             }
             // val end = System.currentTimeMillis()
 
-            // val arrayLength: Int = grid.size
-            // val xs = DoubleArray(arrayLength)
-            // val ys = DoubleArray(arrayLength)
-            // val points = DoubleArray(arrayLength)
             val returns = DoubleArray(reps)
 
             var index = 0
@@ -163,7 +157,7 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
             {
                 val coordinateTotalPivotals = value?.points
                 if (coordinateTotalPivotals != null) {
-                    value?.value = coordinateTotalPivotals.toDouble() / numIterations / averageTotalPivotalsPerIteration
+                    value.value = coordinateTotalPivotals.toDouble() / numIterations / averageTotalPivotalsPerIteration
                 }
                 /*
                 if (value != null) {
