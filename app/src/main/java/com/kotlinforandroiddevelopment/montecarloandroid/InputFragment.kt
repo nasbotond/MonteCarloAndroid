@@ -3,12 +3,15 @@ package com.kotlinforandroiddevelopment.montecarloandroid
 import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import rectangle_code.CoordinateWithPoints
 import rectangle_code.RecCounter
 import java.lang.ClassCastException
@@ -52,6 +55,9 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
         view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.INVISIBLE
 
         runBtn.setOnClickListener{
+            activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.forEach { item: MenuItem -> item.isEnabled =
+                false }
+
             launch{
 
                 view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.VISIBLE
@@ -62,6 +68,9 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
                 listener.onFragmentSetDataset(dataset)
 
                 view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.INVISIBLE
+
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.forEach { item: MenuItem -> item.isEnabled =
+                    true }
             }
             // insertFragment(Integer.parseInt(findViewById<EditText>(R.id.numReps).text.toString()), Integer.parseInt(findViewById<EditText>(R.id.quota).text.toString()), Integer.parseInt(findViewById<EditText>(R.id.iterations).text.toString()))
         }
