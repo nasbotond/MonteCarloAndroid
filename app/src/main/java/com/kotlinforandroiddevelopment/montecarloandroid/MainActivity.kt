@@ -57,6 +57,13 @@ class MainActivity : AppCompatActivity(), InputFragment.OnFragmentInteractionLis
                     .commit()
                 return@OnNavigationItemSelectedListener true
             }
+            R.id.navigation_about -> {
+                toolbar.title = "About"
+                val fragment = AboutFragment.newInstance()
+                supportFragmentManager.beginTransaction().replace(R.id.container, fragment)
+                    .commit()
+                return@OnNavigationItemSelectedListener true
+            }
         }
         false
     }
