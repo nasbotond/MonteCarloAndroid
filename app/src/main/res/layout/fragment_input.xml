@@ -5,54 +5,117 @@
     android:layout_height="match_parent"
     tools:context=".InputFragment">
 
-    <Button
-        android:id="@+id/runButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginLeft="108dp"
-        android:layout_marginTop="72dp"
-        android:text="RUN" />
-
-    <EditText
-        android:id="@+id/numReps"
-        android:layout_width="107dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:text="60"
-        android:maxLength="2" />
-
-    <EditText
-        android:id="@+id/quota"
-        android:layout_width="101dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:text="31"
-        android:maxLength="2" />
-
-    <EditText
-        android:id="@+id/iterations"
-        android:layout_width="91dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:text="1"
-        android:maxLength="1" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
-    <ProgressBar
-        android:id="@+id/loadingPanel"
-        android:layout_width="77dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="156dp"
-        android:layout_marginLeft="156dp"
-        android:layout_marginTop="300dp"
-        android:visibility="visible" />
+        <Button
+            android:id="@+id/runButton"
+            android:layout_width="155dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="184dp"
+            android:layout_marginRight="184dp"
+            android:layout_marginBottom="108dp"
+            android:text="RUN" />
+
+        <EditText
+            android:id="@+id/quota"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="414dp"
+            android:maxLength="2"
+            android:text="31"
+            android:background="TRANSPARENT"/>
+
+        <TextView
+            android:layout_width="85dp"
+            android:layout_height="42dp"
+            android:layout_alignBottom="@+id/iterations"
+            android:layout_marginEnd="38dp"
+            android:layout_marginRight="38dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toStartOf="@+id/iterations"
+            android:layout_toLeftOf="@+id/iterations"
+            android:text="Iterations: " />
+
+        <TextView
+            android:layout_width="86dp"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/quota"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toStartOf="@+id/quota"
+            android:layout_toLeftOf="@+id/quota"
+            android:text="Quota: " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_alignBottom="@+id/numReps"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:layout_marginBottom="13dp"
+            android:layout_toStartOf="@+id/numReps"
+            android:layout_toLeftOf="@+id/numReps"
+            android:text="Number of players: " />
+
+        <EditText
+            android:id="@+id/numReps"
+            android:layout_width="46dp"
+            android:layout_height="58dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="168dp"
+            android:layout_marginRight="168dp"
+            android:layout_marginBottom="493dp"
+            android:maxLength="2"
+            android:text="60"
+            android:background="TRANSPARENT"/>
+
+        <EditText
+            android:id="@+id/iterations"
+            android:layout_width="39dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="128dp"
+            android:layout_marginEnd="202dp"
+            android:layout_marginRight="202dp"
+            android:layout_marginBottom="319dp"
+            android:maxLength="1"
+            android:text="1"
+            android:background="TRANSPARENT"/>
+
+        <ProgressBar
+            android:id="@+id/loadingPanel"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="156dp"
+            android:layout_marginLeft="156dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:layout_marginBottom="103dp"
+            android:visibility="visible"/>
+
+    </RelativeLayout>
 
 
 </FrameLayout>

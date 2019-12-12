@@ -1,6 +1,7 @@
 package com.kotlinforandroiddevelopment.montecarloandroid
 
 import android.app.Activity
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -60,6 +61,8 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
             launch{
 
                 view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.VISIBLE
+                disableEditTextBoxes(view)
+
                 val dataset = calculatePoints(Integer.parseInt(view.findViewById<EditText>(R.id.numReps).text.toString()),
                     Integer.parseInt(view.findViewById<EditText>(R.id.quota).text.toString()),
                     Integer.parseInt(view.findViewById<EditText>(R.id.iterations).text.toString()))
@@ -67,13 +70,37 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
                 listener.onFragmentSetDataset(dataset)
 
                 view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.INVISIBLE
-
+                enableEditTextBoxes(view)
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.forEach { item: MenuItem -> item.isEnabled =
                     true }
             }
         }
         // Inflate the layout for this fragment
         return view
+    }
+
+    private fun disableEditTextBoxes(view : View)
+    {
+        view.findViewById<EditText>(R.id.numReps).isFocusableInTouchMode = false
+        view.findViewById<EditText>(R.id.numReps).isCursorVisible = false
+
+        view.findViewById<EditText>(R.id.quota).isFocusableInTouchMode = false
+        view.findViewById<EditText>(R.id.quota).isCursorVisible = false
+
+        view.findViewById<EditText>(R.id.iterations).isFocusableInTouchMode = false
+        view.findViewById<EditText>(R.id.iterations).isCursorVisible = false
+    }
+
+    private fun enableEditTextBoxes(view : View)
+    {
+        view.findViewById<EditText>(R.id.numReps).isFocusableInTouchMode = true
+        view.findViewById<EditText>(R.id.numReps).isCursorVisible = true
+
+        view.findViewById<EditText>(R.id.quota).isFocusableInTouchMode = true
+        view.findViewById<EditText>(R.id.quota).isCursorVisible = true
+
+        view.findViewById<EditText>(R.id.iterations).isFocusableInTouchMode = true
+        view.findViewById<EditText>(R.id.iterations).isCursorVisible = true
     }
 
     private suspend fun calculatePoints(reps: Int, quota: Int, iterations: Int) : DoubleArray {
