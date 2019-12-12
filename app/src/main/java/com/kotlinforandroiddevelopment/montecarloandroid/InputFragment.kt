@@ -55,13 +55,22 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
         view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.INVISIBLE
 
         runBtn.setOnClickListener{
-            activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.forEach { item: MenuItem -> item.isEnabled =
-                false }
 
             launch{
 
                 view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.VISIBLE
                 disableEditTextBoxes(view)
+
+                /*
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.forEach{ item: MenuItem -> if(item !=
+                    activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_about) || item !=
+                    activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_input)){item.isEnabled =
+                    false} }
+
+                 */
+
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart).isEnabled = false
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData).isEnabled = false
 
                 val dataset = calculatePoints(Integer.parseInt(view.findViewById<EditText>(R.id.numReps).text.toString()),
                     Integer.parseInt(view.findViewById<EditText>(R.id.quota).text.toString()),
@@ -71,8 +80,24 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
 
                 view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.INVISIBLE
                 enableEditTextBoxes(view)
+
+                /*
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.forEach { item: MenuItem -> item.isEnabled =
                     true }
+
+                 */
+
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart).isEnabled = true
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData).isEnabled = true
+
+                /*
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart)
+                    .isVisible = true
+
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData)
+                    .isVisible = true
+
+                 */
             }
         }
         // Inflate the layout for this fragment

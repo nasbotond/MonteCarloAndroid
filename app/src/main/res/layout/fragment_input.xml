@@ -12,108 +12,114 @@
 
         <Button
             android:id="@+id/runButton"
-            android:layout_width="155dp"
-            android:layout_height="35dp"
+            android:layout_width="160dp"
+            android:layout_height="73dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="184dp"
-            android:layout_marginRight="184dp"
-            android:layout_marginBottom="108dp"
-            android:text="RUN" />
+            android:layout_marginEnd="187dp"
+            android:layout_marginBottom="265dp"
+            android:text="RUN"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:typeface="serif" />
 
         <EditText
             android:id="@+id/quota"
             android:layout_width="47dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="72dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:layout_marginBottom="414dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="460dp"
+            android:background="@android:color/transparent"
             android:maxLength="2"
             android:text="31"
-            android:background="@android:color/transparent"/>
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:typeface="serif" />
 
         <TextView
-            android:layout_width="85dp"
-            android:layout_height="42dp"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/iterations"
-            android:layout_marginEnd="38dp"
-            android:layout_marginRight="38dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
             android:layout_marginBottom="0dp"
             android:layout_toStartOf="@+id/iterations"
             android:layout_toLeftOf="@+id/iterations"
-            android:text="Iterations: " />
+            android:text="Iterations: "
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:typeface="serif" />
 
         <TextView
-            android:layout_width="86dp"
-            android:layout_height="40dp"
+            android:layout_width="103dp"
+            android:layout_height="49dp"
             android:layout_alignBottom="@+id/quota"
-            android:layout_marginEnd="14dp"
-            android:layout_marginRight="14dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="-4dp"
             android:layout_toStartOf="@+id/quota"
-            android:layout_toLeftOf="@+id/quota"
-            android:text="Quota: " />
+            android:text="Quota: "
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:typeface="serif" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="58dp"
             android:layout_alignBottom="@+id/numReps"
-            android:layout_marginEnd="19dp"
-            android:layout_marginRight="19dp"
-            android:layout_marginBottom="13dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="-9dp"
             android:layout_toStartOf="@+id/numReps"
-            android:layout_toLeftOf="@+id/numReps"
-            android:text="Number of players: " />
+            android:text="Number of players: "
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:typeface="serif" />
 
         <EditText
             android:id="@+id/numReps"
             android:layout_width="46dp"
-            android:layout_height="58dp"
+            android:layout_height="57dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="168dp"
-            android:layout_marginRight="168dp"
-            android:layout_marginBottom="493dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginBottom="532dp"
+            android:background="@android:color/transparent"
             android:maxLength="2"
             android:text="60"
-            android:background="@android:color/transparent"/>
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:typeface="serif" />
 
         <EditText
             android:id="@+id/iterations"
             android:layout_width="39dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="128dp"
-            android:layout_marginEnd="202dp"
-            android:layout_marginRight="202dp"
-            android:layout_marginBottom="319dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="393dp"
+            android:background="@android:color/transparent"
             android:maxLength="1"
             android:text="1"
-            android:background="@android:color/transparent"/>
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:typeface="serif" />
 
         <ProgressBar
             android:id="@+id/loadingPanel"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="156dp"
-            android:layout_marginLeft="156dp"
             android:layout_marginTop="300dp"
             android:layout_marginEnd="104dp"
-            android:layout_marginRight="104dp"
-            android:layout_marginBottom="103dp"
-            android:visibility="visible"/>
+            android:layout_marginBottom="273dp"
+            android:visibility="visible" />
 
     </RelativeLayout>
 

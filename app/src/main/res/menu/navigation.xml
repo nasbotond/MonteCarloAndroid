@@ -11,7 +11,7 @@
     <item
         android:id="@+id/navigation_printedData"
         android:icon="@drawable/ic_sort_black_24dp"
-        android:title="Printed Data"/>
+        android:title="Printed Data" />
     <item
         android:id="@+id/navigation_about"
         android:icon="@drawable/ic_info_outline_black_24dp"
