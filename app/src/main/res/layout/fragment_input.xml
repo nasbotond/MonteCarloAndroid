@@ -35,7 +35,7 @@
             android:layout_marginBottom="414dp"
             android:maxLength="2"
             android:text="31"
-            android:background="TRANSPARENT"/>
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:layout_width="85dp"
@@ -83,7 +83,7 @@
             android:layout_marginBottom="493dp"
             android:maxLength="2"
             android:text="60"
-            android:background="TRANSPARENT"/>
+            android:background="@android:color/transparent"/>
 
         <EditText
             android:id="@+id/iterations"
@@ -98,7 +98,7 @@
             android:layout_marginBottom="319dp"
             android:maxLength="1"
             android:text="1"
-            android:background="TRANSPARENT"/>
+            android:background="@android:color/transparent"/>
 
         <ProgressBar
             android:id="@+id/loadingPanel"
