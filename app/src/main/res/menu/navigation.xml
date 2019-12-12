@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_input"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_input_black_24dp"
         android:title="Inputs"/>
     <item
         android:id="@+id/navigation_chart"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_show_chart_black_24dp"
         android:title="Graph"/>
     <item
         android:id="@+id/navigation_printedData"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_sort_black_24dp"
         android:title="Printed Data"/>
     </menu>
