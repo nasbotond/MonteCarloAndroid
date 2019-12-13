@@ -75,6 +75,7 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
 
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart).isEnabled = false
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData).isEnabled = false
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_about).isEnabled = false
 
                 val dataset = calculatePoints(Integer.parseInt(view.findViewById<EditText>(R.id.numReps).text.toString()),
                     Integer.parseInt(view.findViewById<EditText>(R.id.quota).text.toString()),
@@ -93,6 +94,7 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
 
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart).isEnabled = true
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData).isEnabled = true
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_about).isEnabled = true
 
                 /*
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart)

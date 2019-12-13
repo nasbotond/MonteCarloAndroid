@@ -15,5 +15,6 @@
     <string name="quota">Quota: </string>
     <string name="reps">Number of Players: </string>
     <string name="iterations">Iterations: </string>
+    <string name="title">MONTE CARLO</string>
 
 </resources>
