@@ -24,6 +24,8 @@ import kotlinx.coroutines.*
 
 class InputFragment : Fragment(), CoroutineScope by MainScope() {
 
+    private lateinit var progressBar : ProgressBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -37,7 +39,7 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
         try{
             listener = this.activity as OnFragmentInteractionListener
         } catch (e : ClassCastException){
-            throw ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener");
+            throw ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener")
         }
     }
 
@@ -52,13 +54,15 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
         val runBtn =
             view.findViewById<Button>(R.id.runButton)
 
-        view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.INVISIBLE
+        progressBar = view.findViewById(R.id.loadingPanel)
+
+        progressBar.visibility = View.INVISIBLE
 
         runBtn.setOnClickListener{
 
             launch{
 
-                view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.VISIBLE
+                progressBar.visibility = View.VISIBLE
                 disableEditTextBoxes(view)
 
                 /*
@@ -78,7 +82,7 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
 
                 listener.onFragmentSetDataset(dataset)
 
-                view.findViewById<ProgressBar>(R.id.loadingPanel).visibility = View.INVISIBLE
+                progressBar.visibility = View.INVISIBLE
                 enableEditTextBoxes(view)
 
                 /*
@@ -129,6 +133,9 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
     }
 
     private suspend fun calculatePoints(reps: Int, quota: Int, iterations: Int) : DoubleArray {
+
+        progressBar.max = reps * iterations // TODO
+        progressBar.progress = 0
 
         return withContext(Dispatchers.Default){
 
@@ -195,6 +202,7 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
                         grid[key]!!.incrementPoints(points)
                     }
                     i += 1
+                    progressBar.progress += 1
                 }
                 //
                 // setInput(setValueForChart(grid, numIterations, averageTotalPivotalsPerIteration));
