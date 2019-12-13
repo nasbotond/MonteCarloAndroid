@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">MonteCarloAndroid</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="intro_to_monte_carlo">Monte Carlo methods, or Monte Carlo experiments, are a broad class of computational algorithms
+        that rely on repeated random sampling to obtain numerical results. The underlying concept is to use randomness to solve problems that might
+        deterministic in principle. They are often used in physical and mathematical problems and are most useful when it
+        is difficult or impossible to use other approaches.</string>
+
+    <string name="this_problem_description">This problem analyzes the voting power of the members of the game using a spatial Banzhaf power index.
+        The problem identifies critical members whose votes are necessary to form winning coalitions.</string>
+    <string name="reps_text">40</string>
+    <string name="run_text">RUN</string>
+    <string name="quota_text">21</string>
+    <string name="iterations_text">2</string>
+    <string name="quota">Quota: </string>
+    <string name="reps">Number of Players: </string>
+    <string name="iterations">Iterations: </string>
+
 </resources>

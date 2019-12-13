@@ -1,130 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InputFragment">
 
-    <RelativeLayout
+    <Button
+        android:id="@+id/runButton"
+        android:layout_width="197dp"
+        android:layout_height="37dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="304dp"
+        android:background="#835959"
+        android:text="@string/run_text"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:typeface="serif" />
+
+    <EditText
+        android:id="@+id/quota"
+        android:layout_width="47dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="493dp"
+        android:autofillHints="number"
+        android:background="@android:color/transparent"
+        android:inputType="number"
+        android:maxLength="2"
+        android:text="@string/quota_text"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:typeface="serif" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iterations"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toStartOf="@+id/iterations"
+        android:text="@string/iterations"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:typeface="serif" />
+
+    <TextView
+        android:layout_width="89dp"
+        android:layout_height="54dp"
+        android:layout_alignBottom="@+id/quota"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="-20dp"
+        android:layout_toStartOf="@+id/quota"
+        android:text="@string/quota"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:typeface="serif" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/numReps"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="11dp"
+        android:layout_toStartOf="@+id/numReps"
+        android:text="@string/reps"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:typeface="serif" />
+
+    <EditText
+        android:id="@+id/numReps"
+        android:layout_width="46dp"
+        android:layout_height="57dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="577dp"
+        android:autofillHints="number"
+        android:background="@android:color/transparent"
+        android:inputType="number"
+        android:maxLength="2"
+        android:text="@string/reps_text"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:typeface="serif" />
+
+    <EditText
+        android:id="@+id/iterations"
+        android:layout_width="39dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="386dp"
+        android:autofillHints="number"
+        android:background="@android:color/transparent"
+        android:inputType="number"
+        android:maxLength="1"
+        android:text="@string/iterations_text"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:typeface="serif" />
+
+    <ProgressBar
+        android:id="@+id/loadingPanel"
+        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="55dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="30dp"
+        android:indeterminate="false"
+        android:progressBackgroundTint="#FFFFFF"
+        android:progressTint="#000000"
+        android:visibility="visible" />
 
 
-        <Button
-            android:id="@+id/runButton"
-            android:layout_width="160dp"
-            android:layout_height="73dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="187dp"
-            android:layout_marginBottom="265dp"
-            android:text="RUN"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:typeface="serif" />
-
-        <EditText
-            android:id="@+id/quota"
-            android:layout_width="47dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="72dp"
-            android:layout_marginEnd="54dp"
-            android:layout_marginBottom="460dp"
-            android:background="@android:color/transparent"
-            android:maxLength="2"
-            android:text="31"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:typeface="serif" />
-
-        <TextView
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/iterations"
-            android:layout_marginEnd="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_marginBottom="0dp"
-            android:layout_toStartOf="@+id/iterations"
-            android:layout_toLeftOf="@+id/iterations"
-            android:text="Iterations: "
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:typeface="serif" />
-
-        <TextView
-            android:layout_width="103dp"
-            android:layout_height="49dp"
-            android:layout_alignBottom="@+id/quota"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="-4dp"
-            android:layout_toStartOf="@+id/quota"
-            android:text="Quota: "
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:typeface="serif" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="58dp"
-            android:layout_alignBottom="@+id/numReps"
-            android:layout_marginEnd="9dp"
-            android:layout_marginBottom="-9dp"
-            android:layout_toStartOf="@+id/numReps"
-            android:text="Number of players: "
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:typeface="serif" />
-
-        <EditText
-            android:id="@+id/numReps"
-            android:layout_width="46dp"
-            android:layout_height="57dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="52dp"
-            android:layout_marginBottom="532dp"
-            android:background="@android:color/transparent"
-            android:maxLength="2"
-            android:text="60"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:typeface="serif" />
-
-        <EditText
-            android:id="@+id/iterations"
-            android:layout_width="39dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="128dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="393dp"
-            android:background="@android:color/transparent"
-            android:maxLength="1"
-            android:text="1"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:typeface="serif" />
-
-        <ProgressBar
-            android:id="@+id/loadingPanel"
-            style="@android:style/Widget.Holo.ProgressBar.Horizontal"
-            android:layout_width="199dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="300dp"
-            android:layout_marginEnd="107dp"
-            android:layout_marginBottom="227dp"
-            android:indeterminate="false"
-            android:visibility="visible"
-            android:progressBackgroundTint="@color/cardview_dark_background"
-            android:progressTint="@color/design_default_color_primary"/>
-
-    </RelativeLayout>
-
-
-</FrameLayout>
+</RelativeLayout>
