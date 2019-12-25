@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import rectangle_code.CoordinateWithPoints
 import rectangle_code.RecCounter
@@ -76,8 +77,14 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart).isEnabled = false
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData).isEnabled = false
                 activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_about).isEnabled = false
-
+                /*
                 val dataset = calculatePoints(Integer.parseInt(view.findViewById<EditText>(R.id.numReps).text.toString()),
+                    Integer.parseInt(view.findViewById<EditText>(R.id.quota).text.toString()),
+                    Integer.parseInt(view.findViewById<EditText>(R.id.iterations).text.toString()))
+                */
+                val model = activity?.run {ViewModelProviders.of(this)[MCViewModel::class.java] } ?: throw Exception("Invalid Activity")
+
+                val dataset = model.calculatePoints(Integer.parseInt(view.findViewById<EditText>(R.id.numReps).text.toString()),
                     Integer.parseInt(view.findViewById<EditText>(R.id.quota).text.toString()),
                     Integer.parseInt(view.findViewById<EditText>(R.id.iterations).text.toString()))
 
@@ -134,6 +141,7 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
         view.findViewById<EditText>(R.id.iterations).isCursorVisible = true
     }
 
+    /*
     private suspend fun calculatePoints(reps: Int, quota: Int, iterations: Int) : DoubleArray {
 
         progressBar.max = reps * iterations // TODO
@@ -259,7 +267,7 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
     private fun generateGridIntegerKey(x: Int, y: Int, gridLength: Int): Double {
         return (x + y * gridLength).toDouble()
     }
-
+    */
     companion object {
 
         @JvmStatic
