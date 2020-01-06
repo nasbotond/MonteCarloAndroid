@@ -15,10 +15,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), InputFragment.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity() //, InputFragment.OnFragmentInteractionListener
+{
 
     // lateinit var toolbar: ActionBar
-    lateinit var dataset : DoubleArray
+    lateinit var dataset : Data
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,21 +41,7 @@ class MainActivity : AppCompatActivity(), InputFragment.OnFragmentInteractionLis
             .isEnabled = false
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData)
             .isEnabled=false
-        /*
-        findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart)
-            .isVisible = false
-        findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData)
-            .isVisible=false
 
-         */
-
-        /*
-        findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.forEach{ item: MenuItem -> if(item !=
-            findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_about) || item !=
-            findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_input)){item.isEnabled =
-            false} }
-
-         */
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
@@ -68,14 +55,16 @@ class MainActivity : AppCompatActivity(), InputFragment.OnFragmentInteractionLis
             }
             R.id.navigation_chart -> {
                 // toolbar.title = "Chart"
-                val fragment = ChartFragment.newInstance(dataset)
+                // val fragment = ChartFragment.newInstance(dataset)
+                val fragment = ChartFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.container, fragment)
                     .commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_printedData -> {
                 // toolbar.title = "Printed Data"
-                val fragment = PrintedDataFragment.newInstance(dataset)
+                // val fragment = PrintedDataFragment.newInstance(dataset)
+                val fragment = PrintedDataFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.container, fragment)
                     .commit()
                 return@OnNavigationItemSelectedListener true
@@ -89,10 +78,6 @@ class MainActivity : AppCompatActivity(), InputFragment.OnFragmentInteractionLis
             }
         }
         false
-    }
-
-    override fun onFragmentSetDataset(arr: DoubleArray) {
-        dataset = arr
     }
 
 

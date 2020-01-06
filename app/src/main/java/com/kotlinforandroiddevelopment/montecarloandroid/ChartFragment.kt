@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
@@ -36,15 +37,17 @@ class ChartFragment : Fragment() {
 
         line = view.findViewById<View>(R.id.line) as LineChart
 
-        val r = arguments!!.getDoubleArray(ARG_DATASET)
+        val model = activity?.run { ViewModelProviders.of(this)[MCViewModel::class.java] } ?: throw Exception("Invalid Activity")
+
+        val r = model.dataset
 
         // val r = calculatePoints(numReps, quota, iterations) // array of doubles with the values in it
 
         val yVals = ArrayList<Entry>()
         var i = 0
         if (r != null) {
-            while (i < r.size) {
-                yVals.add(Entry(i.toFloat(), r[i].toFloat(), i.toString()))
+            while (i < r.data.size) {
+                yVals.add(Entry(i.toFloat(), r.data[i].toFloat(), i.toString()))
                 i += 1
             }
         }
@@ -85,22 +88,13 @@ class ChartFragment : Fragment() {
         return view
     }
 
+
     companion object {
 
-        const val ARG_DATASET = "dataset"
-        // TODO: Rename and change types and number of parameters
-        fun newInstance(dataset : DoubleArray): ChartFragment {
-            val fragment = ChartFragment()
-            val bundle = Bundle().apply {
-                // putInt(ARG_REPS, numReps)
-                // putInt(ARG_QUOTA, quota)
-                // putInt(ARG_ITERATIONS, iterations)
-                putDoubleArray(ARG_DATASET, dataset)
-            }
-
-            fragment.arguments = bundle
-
-            return fragment
+        @JvmStatic
+        fun newInstance() : ChartFragment{
+            return ChartFragment()
         }
+
     }
 }

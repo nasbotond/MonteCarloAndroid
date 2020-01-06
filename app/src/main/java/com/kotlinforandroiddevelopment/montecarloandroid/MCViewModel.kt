@@ -12,6 +12,8 @@ import kotlin.collections.LinkedHashMap
 
 class MCViewModel : ViewModel() {
 
+    var dataset : Data = Data(doubleArrayOf(0.0, 0.0, 0.0))
+
     suspend fun calculatePoints(reps: Int, quota: Int, iterations: Int) : DoubleArray {
 
         // progressBar.max = reps * iterations // TODO

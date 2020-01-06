@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import androidx.lifecycle.ViewModelProviders
 
 class PrintedDataFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +22,11 @@ class PrintedDataFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_printed_data, container, false)
 
-        val r = arguments!!.getDoubleArray(ARG_DATASET)
+        val model = activity?.run { ViewModelProviders.of(this)[MCViewModel::class.java] } ?: throw Exception("Invalid Activity")
 
-        val strings = datasetToStrings(r!!)
+        val r = model.dataset
+
+        val strings = datasetToStrings(r.data!!)
 
         val adapter = ArrayAdapter<String>(this.context!!, android.R.layout.simple_list_item_1, strings)
 
@@ -39,20 +42,12 @@ class PrintedDataFragment : Fragment() {
         return Array(dataset!!.size) { i -> "X: " + i.toString() + " Y: " + dataset[i].toString()}
     }
 
+
     companion object {
 
-        const val ARG_DATASET = "dataset"
         @JvmStatic
-        fun newInstance(dataset : DoubleArray) : PrintedDataFragment{
-            val fragment = PrintedDataFragment()
-            val bundle = Bundle().apply {
-
-                putDoubleArray(ARG_DATASET, dataset)
-            }
-
-            fragment.arguments = bundle
-
-            return fragment
+        fun newInstance() : PrintedDataFragment{
+            return PrintedDataFragment()
         }
 
     }
