@@ -128,7 +128,7 @@ class MCViewModel : ViewModel() {
 
     }
 
-    private fun uniformRandomDoubleGenerator(
+    fun uniformRandomDoubleGenerator(
         min: Double,
         max: Double
     ): Double {
@@ -136,7 +136,7 @@ class MCViewModel : ViewModel() {
         return min + (max - min) * random.nextDouble()
     }
 
-    private fun generateGridIntegerKey(x: Int, y: Int, gridLength: Int): Double {
+    fun generateGridIntegerKey(x: Int, y: Int, gridLength: Int): Double {
         return (x + y * gridLength).toDouble()
     }
 }
