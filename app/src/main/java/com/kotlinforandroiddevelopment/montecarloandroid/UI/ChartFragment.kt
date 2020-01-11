@@ -1,4 +1,4 @@
-package com.kotlinforandroiddevelopment.montecarloandroid
+package com.kotlinforandroiddevelopment.montecarloandroid.UI
 
 import android.graphics.Color
 import android.os.Bundle
@@ -13,12 +13,9 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import rectangle_code.CoordinateWithPoints
-import rectangle_code.RecCounter
-import java.util.*
+import com.kotlinforandroiddevelopment.montecarloandroid.MCViewModel
+import com.kotlinforandroiddevelopment.montecarloandroid.R
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.LinkedHashMap
 
 
 class ChartFragment : Fragment() {
@@ -92,7 +89,7 @@ class ChartFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance() : ChartFragment{
+        fun newInstance() : ChartFragment {
             return ChartFragment()
         }
 

@@ -1,18 +1,10 @@
-package com.kotlinforandroiddevelopment.montecarloandroid
+package com.kotlinforandroiddevelopment.montecarloandroid.UI
 
 import android.os.Bundle
-import android.service.autofill.Dataset
-import android.view.MenuItem
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.forEach
-import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.*
+import com.kotlinforandroiddevelopment.montecarloandroid.Data
+import com.kotlinforandroiddevelopment.montecarloandroid.R
 
 
 class MainActivity : AppCompatActivity() //, InputFragment.OnFragmentInteractionListener
@@ -32,14 +24,19 @@ class MainActivity : AppCompatActivity() //, InputFragment.OnFragmentInteraction
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         if (savedInstanceState == null) {
-            val fragment = InputFragment()
+            val fragment =
+                InputFragment()
             supportFragmentManager.beginTransaction().replace(R.id.container, fragment)
                 .commit()
         }
 
-        findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart)
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(
+            R.id.navigation_chart
+        )
             .isEnabled = false
-        findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData)
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(
+            R.id.navigation_printedData
+        )
             .isEnabled=false
 
     }

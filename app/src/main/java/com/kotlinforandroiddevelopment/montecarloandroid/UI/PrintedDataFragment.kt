@@ -1,4 +1,4 @@
-package com.kotlinforandroiddevelopment.montecarloandroid
+package com.kotlinforandroiddevelopment.montecarloandroid.UI
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.lifecycle.ViewModelProviders
+import com.kotlinforandroiddevelopment.montecarloandroid.MCViewModel
+import com.kotlinforandroiddevelopment.montecarloandroid.R
 
 class PrintedDataFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +48,7 @@ class PrintedDataFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance() : PrintedDataFragment{
+        fun newInstance() : PrintedDataFragment {
             return PrintedDataFragment()
         }
 

@@ -1,26 +1,18 @@
-package com.kotlinforandroiddevelopment.montecarloandroid
+package com.kotlinforandroiddevelopment.montecarloandroid.UI
 
-import android.app.Activity
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
-import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import rectangle_code.CoordinateWithPoints
-import rectangle_code.RecCounter
-import java.lang.ClassCastException
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.LinkedHashMap
+import com.kotlinforandroiddevelopment.montecarloandroid.Data
+import com.kotlinforandroiddevelopment.montecarloandroid.MCViewModel
+import com.kotlinforandroiddevelopment.montecarloandroid.R
 import kotlinx.coroutines.*
 
 class InputFragment : Fragment(), CoroutineScope by MainScope() {
@@ -52,24 +44,41 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
                 progressBar.visibility = View.VISIBLE
                 disableEditTextBoxes(view)
 
-                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart).isEnabled = false
-                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData).isEnabled = false
-                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_about).isEnabled = false
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(
+                    R.id.navigation_chart
+                ).isEnabled = false
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(
+                    R.id.navigation_printedData
+                ).isEnabled = false
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(
+                    R.id.navigation_about
+                ).isEnabled = false
 
                 val model = activity?.run {ViewModelProviders.of(this)[MCViewModel::class.java] } ?: throw Exception("Invalid Activity")
 
-                model.dataset = Data(model.calculatePoints(Integer.parseInt(view.findViewById<EditText>(R.id.numReps).text.toString()),
-                    Integer.parseInt(view.findViewById<EditText>(R.id.quota).text.toString()),
-                    Integer.parseInt(view.findViewById<EditText>(R.id.iterations).text.toString())))
+                model.dataset =
+                    Data(
+                        model.calculatePoints(
+                            Integer.parseInt(view.findViewById<EditText>(R.id.numReps).text.toString()),
+                            Integer.parseInt(view.findViewById<EditText>(R.id.quota).text.toString()),
+                            Integer.parseInt(view.findViewById<EditText>(R.id.iterations).text.toString())
+                        )
+                    )
 
 
                 progressBar.visibility = View.INVISIBLE
                 enableEditTextBoxes(view)
 
 
-                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_chart).isEnabled = true
-                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_printedData).isEnabled = true
-                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(R.id.navigation_about).isEnabled = true
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(
+                    R.id.navigation_chart
+                ).isEnabled = true
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(
+                    R.id.navigation_printedData
+                ).isEnabled = true
+                activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu.findItem(
+                    R.id.navigation_about
+                ).isEnabled = true
 
             }
         }
@@ -104,7 +113,7 @@ class InputFragment : Fragment(), CoroutineScope by MainScope() {
     companion object {
 
         @JvmStatic
-        fun newInstance() : InputFragment{
+        fun newInstance() : InputFragment {
             return InputFragment()
         }
 
